@@ -54,7 +54,7 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
       },
       commands: [
         // Use 'curl' to GET the given URL and fail if it returns an error
-        'curl -Ssf $ENDPOINT_URL-baderror',
+        'curl -Ssf baderror-$ENDPOINT_URL',
       ],
     }));    
     pipeline.addApplicationStage(new CdkpipelinesDemoStage(this, 'QA-test', {
