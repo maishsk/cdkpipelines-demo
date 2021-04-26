@@ -1,26 +1,3 @@
-
-
-import { CfnOutput, Construct, Stage, StageProps } from '@aws-cdk/core';
-import { CdkpipelinesDemoStack } from './cdkpipelines-demo-stack';
-
-/**
- * Deployable unit of web service app
- */
-export class CdkpipelinesDemoStage extends Stage {
-  public readonly urlOutput: CfnOutput;
-  
-  constructor(scope: Construct, id: string, props?: StageProps) {
-    super(scope, id, props);
-
-    const service = new CdkpipelinesDemoStack(this, 'WebService');
-    
-    // Expose CdkpipelinesDemoStack's output one level higher
-    this.urlOutput = service.urlOutput;
-  }
-}
-
-To organize things neatly, put the pipeline definition into its own stack file, lib/cdkpipelines-demo-pipeline-stack.ts (remember to replace OWNER and REPO in the code below):
-
 import * as codepipeline from '@aws-cdk/aws-codepipeline';
 import * as codepipeline_actions from '@aws-cdk/aws-codepipeline-actions';
 import { Construct, SecretValue, Stack, StackProps } from '@aws-cdk/core';
