@@ -57,8 +57,8 @@ export class CdkpipelinesDemoPipelineStack extends Stack {
         'curl -Ssf baderror-$ENDPOINT_URL',
       ],
     }));    
-    pipeline.addApplicationStage(new CdkpipelinesDemoStage(this, 'QA-test', {
-      env: { account: '364900900169', region: 'us-east-2' }
-    }));
+    // pipeline.addApplicationStage(new CdkpipelinesDemoStage(this, 'QA-test', {
+    //   env: { account: '364900900169', region: 'us-east-2' }
+    // }));
   }
 }
